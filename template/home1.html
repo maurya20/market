@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Home Page</p>
+    <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="/profile">Profile</a></li>
+        {% if user.is_authenticated %}
+        <li>Hello,{{user.username}}</li>
+        {% endif %}
+        <li><a href="/logout">logout</a></li>
+    </ul>
+    <div>
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+       
+    </div>
+</body>
+</html>
