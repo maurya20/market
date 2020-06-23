@@ -65,6 +65,11 @@ input {
     margin: 1px;
 }
 
-.mbutton {
+#mbutton {
     background-color: yellowgreen;
 }
+
+#mbutton:hover {
+    background-color: blue;
+}
+

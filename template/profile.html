@@ -27,11 +27,17 @@
     <div class="reg">
             {% csrf_token %}
             <h3>Your Profile</h3>
-            <label for="first_name">First name: </label><br>
-            <label for="last_name">Last name: </label><br>
-            <label for="username">Username: </label><br>
-            <label for="email">E-mail: </label><br><br>
-            <button class="mbutton" type="button">Edit Profile</button>
+            {% if user.is_authenticated %}
+            <label for="first_name">First name: </label>
+            <output type="text" >{{user.first_name}}</output><br>
+            <label for="last_name">Last name: </label>
+            <output type="text" >{{user.last_name}}</output><br>
+            <label for="username">Username: </label>
+            <output type="text" >{{user.username}}</output><br>
+            <label for="email">E-mail: </label>
+            <output type="text" >{{user.email}}</output><br><br><br>
+            {% endif %}
+            <button id="mbutton" type="button">Edit Profile</button>
         </form>
     </div>
     <div>
