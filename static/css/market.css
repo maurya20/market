@@ -8,7 +8,7 @@ div.nav {
     background-color:gray;
     margin: 0;
     padding: 0;
-    height: 80px;
+    height: 54px;
     width: 100%;
 }
 
@@ -16,18 +16,55 @@ ul {
     margin: 0;
     padding: 0;
 }
+
+ul li.hello{
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+    margin-top: 0;
+    color: chartreuse;
+   
+}
+
 .img {
     float: left;
 }
 
 li {
-    float: right;
+    float: right;           
     display: inline;
+    margin-top: 10px;
 }
 
 a {
     text-decoration: none;
     color: white;
-    font-size: 150%;
-    font-weight:bold;
+    font-size: 30px;
+    padding: 10px;
+   
+}
+
+a:hover {
+    background-color:blueviolet;
+}
+
+.reg {
+    margin-left: 35%;
+    margin-right: 35%;
+    padding: 50px;
+    padding-top: 5px;
+    margin-top: 50px;
+    background-color:wheat;
+
+
+}
+
+input {
+    float: right;
+    padding: 5px;
+    margin: 1px;
+}
+
+.mbutton {
+    background-color: yellowgreen;
 }
