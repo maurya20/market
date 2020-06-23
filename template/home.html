@@ -7,13 +7,30 @@
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/market.css' %}">
 </head>
+
 <body>
-    <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="/userlogin">Login</a></li>
-        <li><a href="/register">Register</a></li>
-       
-    </ul>
+    <div class="nav">
+        <ul>
+            <img class="img" src="{% static 'images/logo.png' %}" height="50" width="200">
+            {% if user.is_authenticated %}
+            <li><a href="/logout">logout</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li>Hello,{{user.username}}</li>
+            {% else %}
+            <li><a href="/userlogin">Login</a></li>
+            <li><a href="/register">Register</a></li>
+            {% endif %}
+            <li><a href="">Home</a></li>
+        </ul>
+    </div>
     
+    <div>
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+
+    </div>
+
 </body>
+
 </html>

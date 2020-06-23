@@ -8,6 +8,10 @@ from django.contrib.auth.models import User, auth
 def home(request): 
     return render(request, 'home.html')
 
+def test(request): 
+    return render(request, 'test.html')
+
+
 
 def register(request):
     if request.method == 'POST':
@@ -45,8 +49,8 @@ def userlogin(request):
         User = auth.authenticate(username=username, password=password)
         if User is not None:
             auth.login(request, User)
-            messages.info(request, 'Login Successful, you are Logged-in')
-            return render(request, 'home1.html')
+            messages.info(request, 'Login Successful')
+            return render(request, 'home.html')
 
 
         else:
@@ -62,7 +66,4 @@ def Profile(request):
 def logout(request):
     auth.logout(request)
     return render(request, 'home.html')
-
-def home1(request):
-    return render(request, 'home1.html')
 
