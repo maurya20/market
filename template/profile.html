@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile</title>
+    <title>Register</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/market.css' %}">
 </head>
 
@@ -24,7 +24,22 @@
             <li><a href="home">Home</a></li>
         </ul>
     </div>
-    <p>Profile Page</p>
+    <div class="reg">
+            {% csrf_token %}
+            <h3>Your Profile</h3>
+            <label for="first_name">First name: </label><br>
+            <label for="last_name">Last name: </label><br>
+            <label for="username">Username: </label><br>
+            <label for="email">E-mail: </label><br><br>
+            <button class="mbutton" type="button">Edit Profile</button>
+        </form>
+    </div>
+    <div>
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+    </div>
+    
 </body>
 
 </html>
