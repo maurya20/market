@@ -1,0 +1,33 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color:skyblue;
+}
+
+div.nav {
+    background-color:gray;
+    margin: 0;
+    padding: 0;
+    height: 80px;
+    width: 100%;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+.img {
+    float: left;
+}
+
+li {
+    float: right;
+    display: inline;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 150%;
+    font-weight:bold;
+}
