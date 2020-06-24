@@ -65,5 +65,7 @@ def Profile(request):
 
 def logout(request):
     auth.logout(request)
-    return render(request, 'home.html')
+    return redirect('userlogin')
 
+def edit(request):
+    return render(request, 'edit.html')
