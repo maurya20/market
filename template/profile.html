@@ -25,9 +25,10 @@
         </ul>
     </div>
     <div class="reg">
+        <form>
             {% csrf_token %}
-            <h3>Your Profile</h3>
             {% if user.is_authenticated %}
+            <img src="{{user.profile.image.url}}" height="150" width="150"><br>
             <label for="first_name">First name: </label>
             <output type="text">{{user.first_name}}</output><br>
             <label for="last_name">Last name: </label>
@@ -38,7 +39,7 @@
             <output type="text">{{user.email}}</output><br><br><br>
             {% endif %}
             <a id="mbutton" href="/edit">Edit Profile</a>
-        </form>
+        </form> 
     </div>
     <div>
         {% for message in messages %}
