@@ -3,6 +3,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 
+from django.db import models
+
 
 # Create your views here.
 def home(request): 
@@ -67,5 +69,10 @@ def logout(request):
     auth.logout(request)
     return redirect('userlogin')
 
+
 def edit(request):
     return render(request, 'edit.html')
+ 
+    
+
+

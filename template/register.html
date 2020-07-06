@@ -1,29 +1,5 @@
-{%load static%}
-<!DOCTYPE html>
-<html lang="en">
+{% include 'header.html'%}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/market.css' %}">
-</head>
-
-<body>
-    <div class="nav">
-        <ul>
-            <img class="img" src="{% static 'images/logo.png' %}" height="54" width="150">
-            {% if user.is_authenticated %}
-            <li><a href="/logout">logout</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <li class="hello">Hello, {{user.username}}</li>
-            {% else %}
-            <li><a href="/userlogin">Login</a></li>
-            <li><a href="/register">Register</a></li>
-            {% endif %}
-            <li><a href="home">Home</a></li>
-        </ul>
-    </div>
     <div class="reg">
         <form action="register" method="post">
             {% csrf_token %}
