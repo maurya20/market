@@ -2,11 +2,16 @@
 
     <div class="reg">
         <h3>Update Profile</h3>
+        {% block content %}
         <form action="edit" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{form.as_table}}
+            
+            {{form.as_p}}
+            <label for="tel">Phone: </label>
+            <input type="number" name="phone_num" placeholder="Phone"><br><br>
             <label for="img">Avatar:</label>
             <input type="file" id="img" name="img" accept="image/*"><br><br>
-            <input id="mbutton" type="submit"><br>
+            <input id="mbutton" type="submit" value='Save'/><br>
         </form>
+        {% endblock %}
     </div>

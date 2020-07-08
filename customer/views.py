@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
-
+from . models import Profile
 from django.db import models
+from .forms import ProfileForm
 
 
 # Create your views here.
@@ -21,6 +22,7 @@ def register(request):
         last_name = request.POST['last_name']
         username = request.POST['username']
         email = request.POST['email']
+        
         password1 = request.POST['password1']
         password2 = request.POST['password2']
         if password1 == password2:
@@ -34,6 +36,7 @@ def register(request):
                 user = User.objects.create_user(username=username, first_name=first_name, password=password1, email=email,
                                               last_name=last_name)
                 user.save()
+                
                 messages.info(request, 'A new user created sucessfully')
                 return redirect('userlogin')
 
@@ -71,7 +74,15 @@ def logout(request):
 
 
 def edit(request):
-    return render(request, 'edit.html')
+    if request.method == 'POST':
+        image = request.POST['image']
+        phone = request.POST['phone']
+        form = ProfileForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+    else:
+        form = ProfileForm()
+        return render(request, 'edit.html',  {'form': form})
  
     
 
