@@ -5,6 +5,7 @@ from django.contrib.auth.models import User, auth
 from . models import Profile
 from django.db import models
 from .forms import ProfileForm
+ 
 
 
 # Create your views here.
@@ -74,15 +75,14 @@ def logout(request):
 
 
 def edit(request):
+    form = ProfileForm(request.POST, request.FILES)
     if request.method == 'POST':
-        image = request.POST['image']
-        phone = request.POST['phone']
-        form = ProfileForm(request.POST or None)
         if form.is_valid():
-            form.save()
+            Profile = form.save()
+        return render(request, 'profile.html') 
     else:
-        form = ProfileForm()
-        return render(request, 'edit.html',  {'form': form})
+        context = {'form': form }
+        return render(request, 'edit.html', context)
  
     
 
