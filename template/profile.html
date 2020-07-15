@@ -1,7 +1,7 @@
 {% include 'header.html'%}
 
     <div class="reg">
-        <form>
+       
             {% csrf_token %}
             {% if user.is_authenticated %}
             <img class="avatar" src="{{user.profile.image.url}}" height="50" width="50"><br>
@@ -13,10 +13,11 @@
             <output type="text">{{user.username}}</output><br>
             <label for="email">E-mail: </label>
             <output type="text">{{user.email}}</output><br><br><br>
+            <label for="quote">My Quote: </label>
+            <output type="text">{{user.profile.quotes}}</output><br><br><br>
             {% endif %}
             <a id="mbutton" onclick="return myEdit();" href="/edit" >Edit Profile</a>
-            
-        </form> 
+        
     </div>
     <div>
         {% for message in messages %}

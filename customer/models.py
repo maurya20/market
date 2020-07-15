@@ -10,7 +10,7 @@ class Profile(models.Model):
     image = models.ImageField(default='default.jpg', upload_to='profile_pics/', null='true', blank= 'true')
     phone = models.CharField(max_length=11)
     hobbies = models.CharField(max_length=300, default='')
-    mail = models.EmailField(max_length=50)
+    quotes = models.TextField(max_length=350)
     
 
     
