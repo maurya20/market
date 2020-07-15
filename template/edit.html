@@ -1,13 +1,14 @@
 {% include 'header.html'%}
 
 <div class="reg">
+<img class="avatar" src="{{user.profile.image.url}}" height="50" width="50"><br>
     <h3>Update Profile</h3>
 
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <img class="avatar" src="{{user.profile.image.url}}" height="50" width="50"><br>
-        {{form.as_p}}
-        <input id="mbutton" type="submit"><br>
+        {{ form.as_ul }}<br><br><br><br><br><br><br><br><br><br><br>
+        
+        <br><br><br><br><br><input id="mbutton" type="submit"><br>
     </form>
 
 </div>
