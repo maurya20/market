@@ -5,22 +5,26 @@ from django.contrib.auth.models import User, auth
 from django.db import models
 from .forms import ProfileForm
 from django.http import HttpResponse
-from customer.models import Profile
+from customer.models import Profile, Event
 import csv 
 
 
 
 
-def getfile(request):  
-    response = HttpResponse(content_type='text/csv')
-    writer = csv.writer(response) 
-    writer.writerow(['Image', 'Phone Number', 'Hobbies', 'Quotes'])
-    P = Profile.objects.all()
-    for x in P:
-        writer.writerow([x.image, x.phone, x.hobbies, x.Quotes])  
-    response['Content-Disposition'] = 'attachment; filename = "cmsrprofile.csv"'
-    return response  
+
  
+def getfile(request):  
+    response = HttpResponse(content_type='text/csv')  
+    response['Content-Disposition'] = 'attachment; filename="file.csv"'  
+    rofile = User.objects.all() 
+    
+    writer = csv.writer(response) 
+    writer.writerow(['id', 'username', 'email'])   
+    for x in rofile:  
+        writer.writerow([x.id, x.username, x.email])  
+    return response
+    
+
 
 
 # Create your views here.
