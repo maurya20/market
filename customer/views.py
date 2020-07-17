@@ -5,15 +5,34 @@ from django.contrib.auth.models import User, auth
 from . models import Profile
 from django.db import models
 from .forms import ProfileForm
+from django.http import HttpResponse
+import csv
+
+
+
+
+
+def getfile(request):  
+    response = HttpResponse(content_type='text/csv')  
+    response['Content-Disposition'] = 'attachment; filename="file.csv"'  
+    writer = csv.writer(response)  
+    writer.writerow(['1001', 'John', 'Domil', 'CA'])  
+    writer.writerow(['1002', 'Amit', 'Mukharji', 'LA', '"Testing"'])
+    writer.writerow(['1003',"apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]) 
+    return response  
  
 
 
 # Create your views here.
-def home(request): 
+def home(request):
     return render(request, 'home.html')
 
-def test(request): 
-    return render(request, 'test.html')
+
+
+
+def test(request):
+    return redirect(request, 'home.html')
+    
 
 
 
@@ -23,7 +42,6 @@ def register(request):
         last_name = request.POST['last_name']
         username = request.POST['username']
         email = request.POST['email']
-        
         password1 = request.POST['password1']
         password2 = request.POST['password2']
         if password1 == password2:
@@ -37,10 +55,8 @@ def register(request):
                 user = User.objects.create_user(username=username, first_name=first_name, password=password1, email=email,
                                               last_name=last_name)
                 user.save()
-                
                 messages.info(request, 'A new user created sucessfully')
                 return redirect('userlogin')
-
         else:
             messages.info(request, 'Password not matching')
             return redirect('register')
