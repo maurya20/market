@@ -2,23 +2,23 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
-from . models import Profile
 from django.db import models
 from .forms import ProfileForm
 from django.http import HttpResponse
-import csv
-
+from customer.models import Profile
+import csv 
 
 
 
 
 def getfile(request):  
-    response = HttpResponse(content_type='text/csv')  
-    response['Content-Disposition'] = 'attachment; filename="file.csv"'  
-    writer = csv.writer(response)  
-    writer.writerow(['1001', 'John', 'Domil', 'CA'])  
-    writer.writerow(['1002', 'Amit', 'Mukharji', 'LA', '"Testing"'])
-    writer.writerow(['1003',"apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]) 
+    response = HttpResponse(content_type='text/csv')
+    writer = csv.writer(response) 
+    writer.writerow(['Image', 'Phone Number', 'Hobbies', 'Quotes'])
+    P = Profile.objects.all()
+    for x in P:
+        writer.writerow([x.image, x.phone, x.hobbies, x.Quotes])  
+    response['Content-Disposition'] = 'attachment; filename = "cmsrprofile.csv"'
     return response  
  
 
