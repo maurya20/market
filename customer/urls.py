@@ -13,9 +13,9 @@ urlpatterns = [
     path('userlogin', views.userlogin, name='userlogin'),
     path('profile', views.Profile, name='profile'),
     path('logout', views.logout, name='logout'),
-    path('test', views.test, name='test'),
     path('edit', views.edit, name='edit'),
-    path('csv',views.getfile)  
+    path('crud',views.crud),
+    path('destroy', views.destroy)  
     
 ]
 

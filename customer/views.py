@@ -3,28 +3,9 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from django.db import models
-from .forms import ProfileForm
+from .forms import ProfileForm, EventForm
 from django.http import HttpResponse
 from customer.models import Profile, Event
-import csv 
-
-
-
-
-
- 
-def getfile(request):  
-    response = HttpResponse(content_type='text/csv')  
-    response['Content-Disposition'] = 'attachment; filename="file.csv"'  
-    rofile = User.objects.all() 
-    
-    writer = csv.writer(response) 
-    writer.writerow(['id', 'username', 'email'])   
-    for x in rofile:  
-        writer.writerow([x.id, x.username, x.email])  
-    return response
-    
-
 
 
 # Create your views here.
@@ -33,10 +14,25 @@ def home(request):
 
 
 
+ 
+def crud(request):  
+    if request.method == "POST":  
+        form = EventForm(request.POST)  
+        if form.is_valid():  
+            try:  
+                form.save()  
+                return redirect('/profile')  
+            except:  
+                pass  
+    else:  
+        form = EventForm()  
+    return render(request,'profile.html', {'form':form}) 
 
-def test(request):
-    return redirect(request, 'home.html')
-    
+
+def destroy(request):  
+    prof = Event.objects.get()  
+    prof.delete()  
+    return redirect("/edit") 
 
 
 
