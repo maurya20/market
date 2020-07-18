@@ -14,3 +14,9 @@ class EventForm(forms.ModelForm):
     class Meta:  
         model = Event  
         fields = "__all__"  
+
+
+class PUForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['image','user']

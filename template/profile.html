@@ -20,6 +20,14 @@
            <a id="mbutton" href="/destroy">Delete Profile</a>
     </div>
     <div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+       
+        {{ p_form.as_p }}
+        
+        <input id="mbutton" type="submit">
+    </form>
+
         {% for message in messages %}
         <h3>{{message}}</h3>
         {% endfor %}

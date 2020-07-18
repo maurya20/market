@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from django.db import models
-from .forms import ProfileForm, EventForm
+from .forms import ProfileForm, EventForm, PUForm
 from django.http import HttpResponse
 from customer.models import Profile, Event
 
@@ -83,7 +83,15 @@ def userlogin(request):
 
 
 def Profile(request):
-    return render(request, 'profile.html')
+    if request.method == 'POST':
+        p_form = PUForm(request.POST, request.FILES)
+        if p_form.is_valid():
+            p_form.save()
+        return redirect('profile')
+    else:
+        p_form = PUForm()
+        context = {'p_form': p_form }
+        return render(request, 'profile.html', context)
 
 def logout(request):
     auth.logout(request)
@@ -95,7 +103,7 @@ def edit(request):
     if request.method == 'POST':
         if form.is_valid():
             Profile = form.save()
-        return render(request, 'profile.html') 
+            return render(request, 'profile.html') 
     else:
         context = {'form': form }
         return render(request, 'edit.html', context)
