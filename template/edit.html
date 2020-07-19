@@ -1,4 +1,6 @@
-{% include 'header.html'%}
+{% extends 'header.html'%}
+
+{% block content  %}
 
 <div class="reg">
 <img class="avatar" src="{{user.profile.image.url}}" height="50" width="50"><br>
@@ -13,3 +15,8 @@
     </form>
 
 </div>
+
+
+
+
+{% endblock %}

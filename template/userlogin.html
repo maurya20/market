@@ -1,4 +1,6 @@
-{% include 'header.html'%}
+{% extends 'header.html'%}
+
+{% block content  %}
     <div class="reg">
     <form action="userlogin" method="post">
         {% csrf_token %}
@@ -15,4 +17,8 @@
         <h3>{{message}}</h3>
         {% endfor %}
     </div>
-<
+
+
+
+
+{% endblock %}
