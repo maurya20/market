@@ -16,19 +16,12 @@
             <label for="email">E-mail: </label>
             <output type="text">{{user.email}}</output><br><br><br>
             <label for="quote">My Quote: </label>
-            <output type="text">{{user.profile.quotes}}</output><br><br><br>
-            {% endif %}
-            <a id="mbutton" onclick="return myEdit();" href="/edit" >Edit Profile</a>
-           <a id="mbutton" href="/destroy">Delete Profile</a>
+            <output type="text">{{user.profile.id}}</output><br><br><br>
+            <a id="mbutton" onclick="return myEdit();" href="{% url 'edit' user.profile.user_id %}">Edit Profile</a>
+        {% endif %}
     </div>
     <div>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-       
-        {{ p_form.as_p }}
-        
-        <input id="mbutton" type="submit">
-    </form>
+
 
         {% for message in messages %}
         <h3>{{message}}</h3>

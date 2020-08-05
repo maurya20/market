@@ -98,12 +98,13 @@ def logout(request):
     return redirect('userlogin')
 
 
-def edit(request):
+def edit(request, user_id):
+    prof = User.profile.objects.get(id=user_id)
     form = ProfileForm(request.POST, request.FILES)
     if request.method == 'POST':
         if form.is_valid():
-            Profile = form.save()
-            return render(request, 'profile.html') 
+            form.save()
+            return redirect("profile")
     else:
         context = {'form': form }
         return render(request, 'edit.html', context)
