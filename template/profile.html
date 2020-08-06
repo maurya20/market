@@ -4,9 +4,8 @@
 
     <div class="reg">
        
-            {% csrf_token %}
             {% if user.is_authenticated %}
-            <img class="avatar" src="{{user.profile.image.url}}" height="50" width="50"><br>
+<img class="avatar" src="{{user.profile.image.url}}" height="50" width="50"><br>
             <label for="first_name">First name: </label>
             <output type="text">{{user.first_name}}</output><br>
             <label for="last_name">Last name: </label>
