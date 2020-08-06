@@ -4,18 +4,8 @@ body {
     background-color:skyblue;
 }
 
-div.nav {
-    background-color:gray;
-    margin: 0;
-    padding: 0;
-    height: 54px;
-    width: 100%;
-}
 
-ul {
-    margin: 0;
-    padding: 0;
-}
+
 
 ul li.hello{
     color: white;
@@ -26,15 +16,7 @@ ul li.hello{
    
 }
 
-.img {
-    float: left;
-}
 
-li {
-    float: right;           
-    display: inline;
-    margin-top: 10px;
-}
 
 a {
     text-decoration: none;
@@ -44,9 +26,7 @@ a {
    
 }
 
-a:hover {
-    background-color:blueviolet;
-}
+
 
 .reg {
     margin-left: 23%;

@@ -74,7 +74,6 @@ def userlogin(request):
         User = auth.authenticate(username=username, password=password)
         if User is not None:
             auth.login(request, User)
-            messages.info(request, 'Login Successful')
             return render(request, 'home.html')
 
 
