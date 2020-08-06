@@ -3,6 +3,7 @@ from .models import Profile, Event
 
 
 class ProfileForm(forms.ModelForm):
+    image = forms.ImageField(required=False, widget=forms.FileInput)
     class Meta:
         model = Profile
         fields = ['image','phone','hobbies','quotes']
