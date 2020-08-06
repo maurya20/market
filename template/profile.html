@@ -5,11 +5,11 @@
     <div class="reg">
        
             {% if user.is_authenticated %}
-<img class="avatar" src="{{user.profile.image.url}}" height="60" width="90"><br>
+            <img class="avatar" src="{{user.profile.image.url}}" height="100" width="160"><br>
             <label for="first_name">First name: </label>
-            <output type="text">{{user.first_name}}</output><br>
+            <output type="text">{{user.first_name}}</output>
             <label for="last_name">Last name: </label>
-            <output type="text">{{user.last_name}}</output><br>
+            <output type="text">{{user.last_name}}</output>
             <label for="username">Username: </label>
             <output type="text">{{user.username}}</output><br>
             <label for="email">E-mail: </label>
