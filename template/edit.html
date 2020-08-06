@@ -3,10 +3,9 @@
 {% block content  %}
 
 <div class="reg">
-<img class="avatar" src="{{user.profile.image.url}}" height="50" width="50"><br>
-    <h3>Update your Profile {{user.first_name}}</h3>
 
-    <form method="post" enctype="multipart/form-data">
+
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <table>
         {{ form.as_table }}

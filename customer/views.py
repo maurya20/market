@@ -6,6 +6,9 @@ from django.db import models
 from .forms import ProfileForm, EventForm, PUForm
 from django.http import HttpResponse
 from customer.models import Profile, Event
+from django.conf import settings
+from django.contrib.auth.decorators import login_required
+from django.db import transaction
 
 
 # Create your views here.
@@ -97,14 +100,14 @@ def logout(request):
     auth.logout(request)
     return redirect('userlogin')
 
-
-def edit(request, user_id):
-    prof = User.profile.objects.get(id=user_id)
-    form = ProfileForm(request.POST, request.FILES)
+@login_required
+@transaction.atomic
+def edit(request):
+    form = ProfileForm(request.POST or None, request.FILES or None, instance=request.user.profile)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect("profile")
+        return redirect('profile')
     else:
         context = {'form': form }
         return render(request, 'edit.html', context)

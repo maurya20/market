@@ -16,8 +16,8 @@
             <label for="email">E-mail: </label>
             <output type="text">{{user.email}}</output><br><br><br>
             <label for="quote">My Quote: </label>
-            <output type="text">{{user.profile.id}}</output><br><br><br>
-            <a id="mbutton" onclick="return myEdit();" href="{% url 'edit' user.profile.user_id %}">Edit Profile</a>
+            <output type="text">{{user.profile.quotes}}</output><br><br><br>
+            <a id="mbutton" onclick="return myEdit();" href="edit">Edit Profile</a>
         {% endif %}
     </div>
     <div>
