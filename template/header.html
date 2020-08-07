@@ -10,6 +10,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/market.css' %}">
+
+    
+
 </head>
 
 <body>
@@ -19,13 +22,13 @@
                 <a class="navbar-brand" href="#"><img src="{% static 'images/logo.png' %}" height="44" width="150"></a>
             </div>
             <ul class="nav navbar-nav  navbar-right">
+             <li class="active"><a href="/home">Home</a></li>
                 {% if user.is_authenticated %}
-                <li class="active"><a href="/home">Home</a></li>
+               
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile <span
                             class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="/profile">View Profile</a></li>
-                        <li><a href="/create">Create Profile</a></li>
                         <li><a href="/edit">Edit Profile</a></li>
                     </ul>
                 </li>
