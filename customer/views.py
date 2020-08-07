@@ -19,24 +19,18 @@ def home(request):
 
 
  
-def crud(request):  
-    if request.method == "POST":  
-        form = EventForm(request.POST)  
-        if form.is_valid():  
-            try:  
-                form.save()  
-                return redirect('/profile')  
-            except:  
-                pass  
-    else:  
-        form = EventForm()  
-    return render(request,'profile.html', {'form':form}) 
+def create(request):
+    form = ProfileForm(request.POST or None, request.FILES or None, instance=request.user.profile)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+        return redirect('profile')
+    else:
+        context = {'form': form }
+        return render(request, 'create.html', context) 
 
 
-def destroy(request):  
-    prof = Event.objects.get()  
-    prof.delete()  
-    return redirect("/edit") 
+
 
 
 
@@ -58,7 +52,7 @@ def register(request):
             else:
                 user = User.objects.create_user(username=username, first_name=first_name, password=password1, email=email,
                                               last_name=last_name)
-                user.save()
+                user.save() 
                 messages.info(request, 'A new user created sucessfully')
                 return redirect('userlogin')
         else:
