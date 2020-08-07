@@ -9,6 +9,7 @@ from customer.models import Profile, Event
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
+from django.contrib.auth.decorators import user_passes_test
 
 
 # Create your views here.
@@ -67,6 +68,7 @@ def register(request):
         return render(request, 'register.html')
 
 
+@user_passes_test(lambda user: not user.username, login_url='/home', redirect_field_name=None)
 def userlogin(request):
     if request.method == 'POST':
         username = request.POST['username']
