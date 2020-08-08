@@ -1,5 +1,5 @@
 from django import forms
-from .models import Profile, Event
+from .models import Profile, Trending
 
 
 class ProfileForm(forms.ModelForm):
@@ -11,9 +11,9 @@ class ProfileForm(forms.ModelForm):
 
 
 
-class EventForm(forms.ModelForm):  
+class TrendingForm(forms.ModelForm):  
     class Meta:  
-        model = Event  
+        model = Trending  
         fields = "__all__"  
 
 

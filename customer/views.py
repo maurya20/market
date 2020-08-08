@@ -3,9 +3,9 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from django.db import models
-from .forms import ProfileForm, EventForm, PUForm
+from .forms import ProfileForm, TrendingForm, PUForm
 from django.http import HttpResponse
-from customer.models import Profile, Event
+from customer.models import Profile, Trending
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
@@ -21,11 +21,11 @@ def home(request):
 
  
 def create(request):
-    form = ProfileForm(request.POST or None, request.FILES or None, instance=request.user.profile)
+    form = TrendingForm(request.POST or None, request.FILES or None)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-        return redirect('profile')
+        return redirect('home')
     else:
         context = {'form': form }
         return render(request, 'create.html', context) 

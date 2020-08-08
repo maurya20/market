@@ -1,7 +1,7 @@
 body {
     margin: 0px;
     padding: 0px;
-    background-color:skyblue;
+    
 }
 
 
@@ -28,16 +28,7 @@ a {
 
 
 
-.reg {
-    margin-left: 33%;
-    margin-right: 33%;
-    padding: 50px;
-    padding-top: 5px;
-    margin-top: 50px;
-    border: 2px solid black;
-    border-radius: 15px;
-    height: 100%;
-}
+
 
 input {
     float: right;

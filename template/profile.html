@@ -2,30 +2,29 @@
 
 {% block content  %}
 
-    <div class="reg">
+    <div class="container">
        
             {% if user.is_authenticated %}
-            <img class="avatar" src="{{user.profile.image.url}}" height="100" width="160"><br>
+            <img class="avatar" src="{{user.profile.image.url}}" height="100" width="160"><br><br>
             <label for="first_name">First name: </label>
-            <output type="text">{{user.first_name}}</output>
+            <output type="text">{{user.first_name}}</output><br>
             <label for="last_name">Last name: </label>
-            <output type="text">{{user.last_name}}</output>
+            <output type="text">{{user.last_name}}</output><br>
             <label for="username">Username: </label>
             <output type="text">{{user.username}}</output><br>
             <label for="email">E-mail: </label>
-            <output type="text">{{user.email}}</output><br><br><br>
+            <output type="text">{{user.email}}</output><br>
             <label for="quote">My Quote: </label>
-            <output type="text">{{user.profile.quotes}}</output><br><br><br>
+            <output type="text">{{user.profile.quotes}}</output><br>
             <a id="mbutton" onclick="return myEdit();" href="edit">Edit Profile</a>
         {% endif %}
-    </div>
+    
+
     <div>
-
-
         {% for message in messages %}
         <h3>{{message}}</h3>
         {% endfor %}
     </div>
-
+    </div>
     
     {% endblock %}

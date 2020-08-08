@@ -34,11 +34,10 @@ def save_user_profile(sender, instance, **kwargs):
 
 
 
-class Event(models.Model):  
-    name = models.CharField('Event Name', max_length=120)
-    venue = models.CharField(max_length=120)
-    manager = models.CharField(max_length=60)
-    description = models.TextField(blank=True)
+class Trending(models.Model):
+    category = models.CharField(max_length=120, null=True) 
+    heading = models.CharField('Blog Heading', max_length=120, null=True)
+    blog = models.TextField(blank=True, null=True)
 
     
 
