@@ -1,105 +1,11 @@
 {% extends 'header.html'%}
 
 {% block content  %}
-
-<div class="container">
-    <div style="height: 120px; ">
-      <h2 style="display: inline">Trending Products</h2>
-      <input id="myInput" type="text" placeholder="Search Products.." style="display: inline; float: right; margin-top: 10px;">
-    </div>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="thumbnail">
-        
-          <img src="/static/images/s3.jpg" alt="Lights" style="width:100%">
-          <div class="caption">
-            <p>Modular Switch Range</p>
-          </div>
-      </div>
-    </div>
- 
-    <div class="col-md-4">
-      <div class="thumbnail">
-        
-          <img src="/static/images/s2.jpg" alt="Nature" style="width:100%">
-          <div class="caption">
-            <p>Modualr Eligent Switch</p>
-          </div>
-        
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="thumbnail">
-          <img src="/static/images/s6.png" alt="Fjords" style="width:100%">
-          <div class="caption">
-            <p>Modular Indecator light</p>
-          </div>
-      </div>
-    </div>
-
-<div class="col-md-4">
-      <div class="thumbnail">
-        
-          <img src="images/s4.jpg" alt="Lights" style="width:100%">
-          <div class="caption">
-            <p>MCB</p>
-          </div>
-      </div>
-    </div>
-<div class="col-md-4">
-      <div class="thumbnail">
-        
-          <img src="images/s8.jpg" alt="Lights" style="width:100%">
-          <div class="caption">
-            <p>Single Pole MCB</p>
-          </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="thumbnail">
-        
-          <img src="images/s6.png" alt="Lights" style="width:100%">
-          <div class="caption">
-            <p>Electricity Meter</p>
-          </div>
-      </div>
-    </div>
-
-
-<div class="col-md-4">
-      <div class="thumbnail">
-        
-          <img src="images/s7.jpg" alt="Lights" style="width:100%">
-          <div class="caption">
-            <p>Fan Regulator Switch</p>
-          </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="thumbnail">
-        
-          <img src="images/s9.jpg" alt="Lights" style="width:100%">
-          <div class="caption">
-            <p>3 Pin Top</p>
-          </div>
-      </div>
-    </div>
-
-<div class="col-md-4">
-      <div class="thumbnail">
-        
-          <img src="images/s10.jpg" alt="Lights" style="width:100%">
-          <div class="caption">
-            <p>Phase Selector</p>
-          </div>
-      </div>
-    </div>
-  </div>
+<h2 style="text-align: center">Welcome To Trending Tech Blog</h2>
+{% for blg in blg %}
+  <h3>{{blg.heading}}</h3><br><br>
+  <h3>{{blg.category}}</h3><br>
+  <p style="text-align: center" >{{blg.blog}}</p>    
+  {% endfor%}  
 </div>
-
-
-
-
 {% endblock  %}
