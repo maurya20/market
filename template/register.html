@@ -3,95 +3,70 @@
 {% block content  %}
 
 <div class="container">
-    <form class="form-horizontal" action="register" method="POST">
-        {% csrf_token %}
-        <h3>Register Here</h3>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="first_name">First name: </label>
-            <div class="col-sm-10">
-            <input type="text"class="form-control" id="first_name" name="first_name" placeholder="First Name">
-        </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="last_name">Last name: </label>
-            <div class="col-sm-10">
-            <input type="text"class="form-control" id="lastt_name" name="last_name" placeholder="Last Name">
-        </div>
-        </div>
-
-
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="username">Username: </label>
-            <div class="col-sm-10">
-            <input type="text"class="form-control" id="username" name="username" placeholder="Username">
-        </div>
-        </div>
-             
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="email">Email: </label>
-            <div class="col-sm-10">
-            <input type="email"class="form-control" id="emil" name="email" placeholder="E-mail">
-        </div>
-        </div>
-        
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="password1">Password: </label>
-            <div class="col-sm-10">
-            <input type="password"class="form-control" id="password" name="password1" placeholder="Password">
-        </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="password2">Confirm Password: </label>
-            <div class="col-sm-10">
-            <input type="password"class="form-control" id="password" name="password2" placeholder="Confirm Password">
-        </div>
-        </div>
-
-        <div class="form-group">        
-          <div class="col-sm-offset-2 col-sm-10">
-            <div class="checkbox">
-              <label><input type="checkbox" name="remember"> Remember me</label>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">        
-          <div class="col-sm-offset-2 col-sm-10">
-            <input id="mbutton" type="submit" value="Save" />
-          </div>
-        </div>
-      </form>
-      <div>
-       
-      <div>
-        {% for message in messages %}
-        <h3>{{message}}</h3>
-        {% endfor %}
+  <form action="register" method="POST">
+    {% csrf_token %}
+    <h3>Register Here</h3>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label col-form-label-lg" for="first_name">First Name: </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control form-control-lg" name="first_name" placeholder="First Name"><br><br>
+      </div>
     </div>
-    
-    
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label col-form-label-lg" for="last_name">Last Name: </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control form-control-lg" name="last_name" placeholder="Last Name"><br><br>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label col-form-label-lg" for="username">Username: </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control form-control-lg" name="username" placeholder="Username"><br><br>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label col-form-label-lg" for="email">E-mail: </label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control form-control-lg" name="email" placeholder="E-mail"><br><br>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label col-form-label-lg" for="password1">Password: </label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control form-control-lg" name="password1" placeholder="Password"><br><br>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label col-form-label-lg" for="password2">Confirm Password: </label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control form-control-lg" name="password2"
+          placeholder="Confirm Password"><br><br>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label><input type="checkbox" name="remember"> Remember me</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <input id="mbutton" type="submit" value="Save" />
+      </div>
+    </div>
+  </form>
+
+
+
+
+
+  <div>
+    {% for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+  </div>
+
+  <div>
+
     {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-       
