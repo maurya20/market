@@ -1,11 +1,11 @@
 {% extends 'header.html'%}
-
 {% block content  %}
+<div class="container">
 <h2 style="text-align: center">Welcome To Trending Tech Blog</h2>
 {% for blg in blg %}
-  <h3>{{blg.heading}}</h3><br><br>
-  <h3>{{blg.category}}</h3><br>
-  <p style="text-align: center" >{{blg.blog}}</p>    
+<h3 style="text-align: center;color:red;">Category:  {{blg.category}}</h3><br>
+  <h3 style="text-align: center;">{{blg.heading}}</h3><br>
+  <p style="text-align: justify;" >{{blg.blog}}</p>    
   {% endfor%}  
 </div>
 {% endblock  %}
