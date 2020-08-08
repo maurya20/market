@@ -5,10 +5,10 @@
 <head>
     <title>Market</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/market.css' %}">
 
     
@@ -22,7 +22,7 @@
                 <a class="navbar-brand" href="#"><img src="{% static 'images/logo.png' %}" height="44" width="150"></a>
             </div>
             <ul class="nav navbar-nav  navbar-right">
-             <li class="active"><a href="/home">Home</a></li>
+             <li ><a href="/home">Home</a></li>
                 {% if user.is_authenticated %}
                
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile <span
@@ -35,6 +35,9 @@
                 <li class="hello">Hello, {{user.username}}</li>
                 <li><a href="/logout">Logout</a></li>
                 {% else %}
+                <li><a style="color: #ff8000;"  href="/userlogin" class="btn btn-dark btn-lg">
+          <span class="glyphicon glyphicon-log-in"></span> Log in
+        </a></li>
             </ul>
         </div>
             
