@@ -39,7 +39,7 @@ class Trending(models.Model):
     category = models.CharField(max_length=120, null=True) 
     heading = models.CharField('Blog Heading', max_length=120, null=True)
     blog = models.TextField(blank=True, null=True)
-    pic = models.ImageField(default='default.jpg', upload_to='blog/', null='True', blank= 'True')
+    pic = models.ImageField(default='blg.jpg', upload_to='blog/', null='True', blank= 'True')
 
     
 

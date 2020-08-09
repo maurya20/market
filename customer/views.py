@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import user_passes_test
 
 
 # Create your views here.
-
+@login_required
 def home(request):
     blg = Trending.objects.all().filter().order_by('-id')
     
@@ -25,7 +25,7 @@ def home(request):
 
 
 
- 
+@login_required
 def create(request):
     form = TrendingForm(request.POST or None, request.FILES or None)
     if request.method == 'POST':
@@ -86,7 +86,7 @@ def userlogin(request):
     else:
         return render(request, 'userlogin.html')
 
-
+@login_required
 def Profile(request):
     if request.method == 'POST':
         p_form = PUForm(request.POST, request.FILES)
