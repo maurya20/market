@@ -1,9 +1,9 @@
 {% extends 'header.html'%}
 {% block content  %}
 <div class="container">
-<h2 style="text-align: center,text-size:28">Welcome To Trending Tech Blog</h2>
+<h2 style="text-align: center;font-size:280%; color:red;">Welcome To Trending Tech Blog</h2>
 {% for blg in blg %}
-<h3 style="text-align: center;color:red;">Blog#:{{blg.id}} Category:  {{blg.category}}</h3>
+<h3 style="text-align: center;color:blue;">Blog#:{{blg.id}} Category:  {{blg.category}}</h3>
  <img src="{{blg.pic.url}}" height="300" width="60%">
   <h3 style="text-align: center;">{{blg.heading}}</h3>
   <h3 style="text-align: center;"> Bloger: {{blg.creater}}</h3><br>

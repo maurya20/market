@@ -15,7 +15,7 @@ from django.contrib.auth.decorators import user_passes_test
 # Create your views here.
 
 def home(request):
-    blg = Trending.objects.all()
+    blg = Trending.objects.all().filter().order_by('-id')
     
     context = {
              'blg':blg,
