@@ -16,9 +16,10 @@ from django.contrib.auth.decorators import user_passes_test
 @login_required
 def home(request):
     blg = Trending.objects.all().filter().order_by('-id')
-    
+    prof = User.objects.latest('id')
     context = {
              'blg':blg,
+             'prof':prof
              
     }
     return render(request, 'home.html', context)
@@ -77,12 +78,13 @@ def userlogin(request):
         User = auth.authenticate(username=username, password=password)
         if User is not None:
             auth.login(request, User)
-            return render(request, 'home.html')
+            return redirect('userlogin')
+            
 
 
         else:
             messages.info(request, 'Invalid credentials')
-            return redirect('userlogin')
+            return render(request, 'home.html')
     else:
         return render(request, 'userlogin.html')
 
