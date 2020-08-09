@@ -16,7 +16,12 @@ from django.contrib.auth.decorators import user_passes_test
 
 def home(request):
     blg = Trending.objects.all()
-    return render(request, 'home.html', {'blg':blg})
+    
+    context = {
+             'blg':blg,
+             
+    }
+    return render(request, 'home.html', context)
 
 
 
