@@ -6,7 +6,7 @@ class ProfileForm(forms.ModelForm):
     image = forms.ImageField(required=False, widget=forms.FileInput)
     class Meta:
         model = Profile
-        fields = ['image','phone','hobbies','quotes','blog']
+        fields = ['image','phone','hobbies','quotes']
 
 
 

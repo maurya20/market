@@ -13,7 +13,7 @@ class Profile(models.Model):
     phone = models.CharField(max_length=11, null='True')
     hobbies = models.CharField(max_length=300, null='True')
     quotes = models.CharField(max_length=150, null='True')
-    blog = models.TextField(max_length=850, null='True')
+    
 
 
 
