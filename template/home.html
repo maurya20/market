@@ -6,15 +6,18 @@
 {% for blg in blg %}
   <div class="col-md-4">
     <div class="thumbnail">
+      <a href="{% url 'blog' blg.id %}">
         <img src="{{blg.pic.url}}" alt="Nature" style="width:100%"></img>
         <div class="caption">
-          <p>{{blg.heading}}</p>
+           <p style="color:black">{{blg.heading}}</p>
         </div>
+      </a>
     </div>
   </div>
 
   {% endfor%}  
 
+</div>
 </div>
 </div>
 {% endblock  %}

@@ -25,6 +25,18 @@ def home(request):
     return render(request, 'home.html', context)
 
 
+@login_required
+def blog(request, id):
+    prof = Trending.objects.get(id=id)
+    context = {
+             
+             'prof':prof
+             
+    }
+    return render(request, 'blog.html', context)
+
+
+
 
 @login_required
 def create(request):

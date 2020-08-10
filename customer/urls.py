@@ -15,6 +15,7 @@ urlpatterns = [
     path('logout', views.logout, name='logout'),
     path('edit', views.edit, name='edit'),
     path('create',views.create, name='create'),
+    path('blog/<int:id>',views.blog, name='blog'),
    
     
 ]
