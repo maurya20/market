@@ -20,4 +20,4 @@ class TrendingForm(forms.ModelForm):
 class PUForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['image','user']
+        fields = "__all__" 

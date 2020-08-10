@@ -35,11 +35,11 @@ def save_user_profile(sender, instance, **kwargs):
 
 
 class Trending(models.Model):
-    creater = models.CharField(max_length=120, null=True) 
     category = models.CharField(max_length=120, null=True) 
     heading = models.CharField('Blog Heading', max_length=120, null=True)
     blog = models.TextField(blank=True, null=True)
     pic = models.ImageField(default='blg.jpg', upload_to='blog/', null='True', blank= 'True')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
 
     
 

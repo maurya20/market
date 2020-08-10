@@ -40,8 +40,10 @@ def blog(request, id):
 
 @login_required
 def create(request):
-    form = TrendingForm(request.POST or None, request.FILES or None)
+    instance = Trending(request.user.username)
+    form = TrendingForm(instance=instance)
     if request.method == 'POST':
+        form = TrendingForm(request.POST or None, request.FILES)
         if form.is_valid():
             form.save()
         return redirect('home')
