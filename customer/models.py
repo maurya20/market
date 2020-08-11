@@ -40,7 +40,7 @@ class Trending(models.Model):
     heading = models.CharField('Blog Heading', max_length=120, null=True)
     blog = models.TextField(blank=True, null=True)
     pic = models.ImageField(default='blg.jpg', upload_to='blog/', null='True', blank= 'True')
-    user = models.OneToOneField(User, on_delete = models.CASCADE, null='True', blank= 'True')
+    user = models.ForeignKey(User, on_delete = models.CASCADE, null='True', blank= 'True')
     
 
 
