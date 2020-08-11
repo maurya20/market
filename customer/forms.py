@@ -1,5 +1,6 @@
 from django import forms
 from .models import Profile, Trending
+from django.contrib.auth.models import User
 
 
 class ProfileForm(forms.ModelForm):
@@ -11,10 +12,12 @@ class ProfileForm(forms.ModelForm):
 
 
 
-class TrendingForm(forms.ModelForm):  
+class TrendingForm(forms.ModelForm): 
+    pic = forms.ImageField(required=False, widget=forms.FileInput)
     class Meta:  
         model = Trending  
-        fields = "__all__"  
+        fields = ['category','heading','pic','blog']
+   
 
 
 class PUForm(forms.ModelForm):

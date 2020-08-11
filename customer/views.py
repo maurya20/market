@@ -12,6 +12,7 @@ from django.db import transaction
 from django.contrib.auth.decorators import user_passes_test
 
 
+
 # Create your views here.
 @login_required
 def home(request):
@@ -38,14 +39,17 @@ def blog(request, id):
 
 
 
+
 @login_required
+@transaction.atomic
 def create(request):
-    instance = Trending(request.user.username)
-    form = TrendingForm(instance=instance)
+    form = TrendingForm(request.POST or None, request.FILES or None)
     if request.method == 'POST':
-        form = TrendingForm(request.POST or None, request.FILES)
         if form.is_valid():
-            form.save()
+            article = form.save(commit=False) 
+            article.user = request.user # you can check here whether user is related any author
+            article.save()
+            
         return redirect('home')
     else:
         context = {'form': form }
