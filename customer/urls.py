@@ -16,7 +16,7 @@ urlpatterns = [
     path('edit', views.edit, name='edit'),
     path('create',views.create, name='create'),
     path('blog/<int:id>',views.blog, name='blog'),
-   
+    path('tb/<int:user_id>',views.tb, name='tb'),
     
 ]
 

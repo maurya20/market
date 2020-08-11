@@ -8,7 +8,8 @@
 
 <h3 style="text-align: center;color:blue;">Category:  {{prof.category}}</h3>
  <h3 style="text-align: center;">{{prof.heading}}</h3>
-  <h3 style="text-align: center;"> Bloger: {{prof.user}}</h3>
+  <a href="{% url 'tb' prof.user_id %}"><h4 style="text-align:center; color:blue;">Bloger:{{prof.user}}</h4></a>
+ 
  <img src="{{prof.pic.url}}" height="400" width="100%"><br><br>
   
   <p style="text-align: justify;" >{{prof.blog}}</p>    

@@ -14,7 +14,7 @@ from django.contrib.auth.decorators import user_passes_test
 
 
 # Create your views here.
-@login_required
+
 def home(request):
     blg = Trending.objects.all().filter().order_by('-id')
     context = {
@@ -25,15 +25,26 @@ def home(request):
     return render(request, 'home.html', context)
 
 
-@login_required
 def blog(request, id):
     prof = Trending.objects.get(id=id)
+    
     context = {
              
-             'prof':prof
+             'prof':prof,
              
-    }
+             
+            }
     return render(request, 'blog.html', context)
+
+
+def tb(request, user_id):
+    total = Trending.objects.filter(user_id=user_id)
+    b = Trending.objects.all()
+    context = {
+    'total':total,
+    'b':b,
+    }
+    return render(request, 'tb.html', context)
 
 
 

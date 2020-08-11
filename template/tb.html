@@ -1,0 +1,23 @@
+{% extends 'header.html'%}
+{% block content  %}
+<div class="container">
+<h2 style="text-align: center;font-size:280%; color:red;">Blogs By </h2><br>
+<div class="row">
+{% for total in total %}
+  <div class="col-md-4">
+    <div class="thumbnail">
+      
+        <img src="{{total.pic.url}}" alt="Nature" style="width:100%"></img>
+        <div class="caption">
+           <p style="color:black">{{total.heading}}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  {% endfor%}  
+
+</div>
+</div>
+</div>
+{% endblock  %}
