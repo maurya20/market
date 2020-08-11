@@ -6,7 +6,7 @@
 {% for total in total %}
   <div class="col-md-4">
     <div class="thumbnail">
-      
+      <a href="{% url 'blog' total.id %}">
         <img src="{{total.pic.url}}" alt="Nature" style="width:100%"></img>
         <div class="caption">
            <p style="color:black">{{total.heading}}</p>

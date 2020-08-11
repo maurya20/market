@@ -9,6 +9,7 @@ from django.contrib import admin
 urlpatterns = [
     path('', views.userlogin, name='userlogin'),
     path('home', views.home, name='home'),
+    path('tb/<int:user_id>',views.tb, name='tb'),
     path('register', views.register, name='register'),
     path('userlogin', views.userlogin, name='userlogin'),
     path('profile', views.Profile, name='profile'),
@@ -16,7 +17,7 @@ urlpatterns = [
     path('edit', views.edit, name='edit'),
     path('create',views.create, name='create'),
     path('blog/<int:id>',views.blog, name='blog'),
-    path('tb/<int:user_id>',views.tb, name='tb'),
+    
     
 ]
 
