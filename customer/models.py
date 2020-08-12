@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.conf import settings
+from datetime import datetime
 
 
 
@@ -36,9 +37,21 @@ def save_user_profile(sender, instance, **kwargs):
 
 
 class Trending(models.Model):
-    category = models.CharField(max_length=120, null=True) 
+    CATEGORY_CHOICES = (
+        ("TECHNOLOGY", "Technology"),
+        ("TRAVELLING", "Travelling"),
+        ("EDUCATION", "Education"),
+        ("AGRICULTURE", "Agricuture"),
+        ("GADGETS", "Gadgets"),
+        ("POLITICS", "Politics"),
+        ("HISTORY", "History"),
+        ("SCIENCE", "Science"),
+        ("FOOD", "Food"),
+        ("MISCELLENIOUS", "Miscellenious"))
+    category = models.CharField(max_length=120, choices=CATEGORY_CHOICES,default='MISCELLENIOUS') 
     heading = models.CharField('Blog Heading', max_length=120, null=True)
     blog = models.TextField(blank=True, null=True)
+    date = models.DateField(default=datetime.now, null=True)
     pic = models.ImageField(default='blg.jpg', upload_to='blog/', null='True', blank= 'True')
     user = models.ForeignKey(User, on_delete = models.CASCADE, null='True', blank= 'True')
     

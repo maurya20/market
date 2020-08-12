@@ -41,6 +41,7 @@ def tb(request, user_id):
     total = Trending.objects.filter(user_id=user_id)
     
     context = {
+   
     'total':total,
     
     }
