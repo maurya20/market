@@ -1,22 +1,24 @@
 {% extends 'header.html'%}
 {% block content  %}
 <div class="container">
-<div >
-<img class="avatar" src="{{prof.user.profile.image.url}}" height="100" width="160">
-<P>Email:{{prof.user.email}}</p>
-<P>Hobby:{{prof.user.profile.hobbies}}</p>
-<P>Fav. Quote:{{prof.user.profile.quotes}}</p>
-<h3 style="text-align: center;color:blue;">Category:  {{prof.category}}</h3>
- <h3 style="text-align: center;">{{prof.heading}}</h3>
-  <a href="{% url 'tb' prof.user_id %}"><h4 style="text-align:center; color:blue;">Bloger:{{prof.user}}</h4></a>
- 
- <img src="{{prof.pic.url}}" height="400" width="100%"><br><br>
-  
-  <p style="text-align: justify;" >{{prof.blog}}</p>    
- 
-
-
-
+  <div class="bbox">
+   <div class="bloger">
+    <img class="avatar" src="{{prof.user.profile.image.url}}" height="130" width="190">
+    <a href="{% url 'tb' prof.user_id %}"><h6 style="color:blue;">Bloger:{{prof.user}}</h6></a>
+    <P>Email:{{prof.user.email}}</p>
+    <P>Hobby:{{prof.user.profile.hobbies}}</p>
+    <P>Fav. Quote:{{prof.user.profile.quotes}}</p>
+  </div>
+  <div class="detail">
+    <h3 style="text-align: center;color:blue;">Category: {{prof.category}}</h3>
+    <h3 style="text-align: center;">{{prof.heading}}</h3>
+   
+    
+  </div>
 </div>
+<img src="{{prof.pic.url}}" height="400" width="100%"><br><br>
+
+<p style="text-align: justify;">{{prof.blog}}</p>
+
 </div>
 {% endblock  %}

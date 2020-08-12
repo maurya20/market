@@ -60,3 +60,18 @@ output {
     border: 1px solid black;
     border-radius: 50%;    
 }
+
+
+.bbox {
+    width: 95%;
+    line-height: 80%;
+    
+}
+.bloger {
+    width:40%;
+    float:left;
+}
+.detail {
+    width:40%;
+    float:right;
+}
