@@ -27,62 +27,32 @@ def save_user_profile(sender, instance, **kwargs):
 {% endblock %}
 
 
-My Notes-
+    path('reset_password/',
+     auth_views.PasswordResetView.as_view(template_name="accounts/password_reset.html"),
+     name="reset_password"),
 
-<ul class="nav navbar-nav navbar-right">
-                <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="/userlogin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
+    path('reset_password_sent/', 
+        auth_views.PasswordResetDoneView.as_view(template_name="accounts/password_reset_sent.html"), 
+        name="password_reset_done"),
 
+    path('reset/<uidb64>/<token>/',
+     auth_views.PasswordResetConfirmView.as_view(template_name="accounts/password_reset_form.html"), 
+     name="password_reset_confirm"),
 
-
-
-
-
-
-
-
-
-
+    path('reset_password_complete/', 
+        auth_views.PasswordResetCompleteView.as_view(template_name="accounts/password_reset_done.html"), 
+        name="password_reset_complete"),
 
 
 
+]
 
-             <div class="form-group">
-            <label for="first_name">First name: </label>
-            <input type="text" name="first_name" placeholder="First Name">
-        </div>
-        <div class="form-group">
-            <label for="last_name">Last name: </label>
-            <input type="text" name="last_name" placeholder="Last Name">
-        </div>
-        <div class="form-group">
-            <label for="username">Username: </label>
-            <input type="text" name="username" placeholder="Username">
-        </div>
-        <div class="form-group">
-            <label for="email">E-mail: </label>
-            <input type="email" name="email" placeholder="E-mail">
-        </div>
-        <div class="form-group">
-
-            <label for="password1">Password: </label>
-            <input type="password" name="password1" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <label for="password2">Confirm: </label>
-            <input type="password" name="password2" placeholder="Confirm Password">
-        </div>
-        
-            <input id="mbutton" type="submit" value="Save" />
-    </form>
-</div>
-
-<div>
-    {% for message in messages %}
-    <h3>{{message}}</h3>
-    {% endfor %}
-</div>
+'''
+1 - Submit email form                         //PasswordResetView.as_view()
+2 - Email sent success message                //PasswordResetDoneView.as_view()
+3 - Link to password Rest form in email       //PasswordResetConfirmView.as_view()
+4 - Password successfully changed message     //PasswordResetCompleteView.as_view()
+'''
 
 
 {% endblock %}

@@ -106,13 +106,10 @@ def userlogin(request):
         User = auth.authenticate(username=username, password=password)
         if User is not None:
             auth.login(request, User)
-            return redirect('userlogin')
-            
-
-
+            return redirect('home')
         else:
             messages.info(request, 'Invalid credentials')
-            return render(request, 'home.html')
+            return render(request, 'userlogin.html')
     else:
         return render(request, 'userlogin.html')
 
