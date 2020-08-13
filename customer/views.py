@@ -13,62 +13,6 @@ from django.contrib.auth.decorators import user_passes_test
 
 
 
-# Create your views here.
-
-def home(request):
-    blg = Trending.objects.all().filter().order_by('-id')
-    context = {
-             'blg':blg,
-            
-             
-    }
-    return render(request, 'home.html', context)
-
-
-def blog(request, id):
-    prof = Trending.objects.get(id=id)
-    
-    context = {
-             
-             'prof':prof,
-             
-             
-            }
-    return render(request, 'blog.html', context)
-
-
-def tb(request, user_id):
-    total = Trending.objects.filter(user_id=user_id)
-    
-    context = {
-   
-    'total':total,
-    
-    }
-    return render(request, 'tb.html', context)
-
-
-
-
-
-@login_required
-@transaction.atomic
-def create(request):
-    form = TrendingForm(request.POST or None, request.FILES or None)
-    if request.method == 'POST':
-        if form.is_valid():
-            article = form.save(commit=False) 
-            article.user = request.user # you can check here whether user is related any author
-            article.save()
-            
-        return redirect('home')
-    else:
-        context = {'form': form }
-        return render(request, 'create.html', context) 
-
-
-
-
 
 
 def register(request):
@@ -114,6 +58,12 @@ def userlogin(request):
     else:
         return render(request, 'userlogin.html')
 
+
+def logout(request):
+    auth.logout(request)
+    return redirect('userlogin')
+
+
 @login_required
 def Profile(request):
     if request.method == 'POST':
@@ -126,9 +76,6 @@ def Profile(request):
         context = {'p_form': p_form }
         return render(request, 'profile.html', context)
 
-def logout(request):
-    auth.logout(request)
-    return redirect('userlogin')
 
 @login_required
 @transaction.atomic
@@ -142,6 +89,79 @@ def edit(request):
         context = {'form': form }
         return render(request, 'edit.html', context)
  
+
+
+
+
+def home(request):
+    blg = Trending.objects.all().filter().order_by('-id')
+    context = {
+             'blg':blg,
+            
+             
+    }
+    return render(request, 'home.html', context)
+
+
+def blog(request, id):
+    prof = Trending.objects.get(id=id)
+    
+    context = {
+             
+             'prof':prof,
+             
+             
+            }
+    return render(request, 'blog.html', context)
+
+
+def tb(request, user_id):
+    total = Trending.objects.filter(user_id=user_id)
+    
+    context = {
+   
+    'total':total,
+    
+    }
+    return render(request, 'tb.html', context)
+
+
+def tbbc(request, category):
+    total = Trending.objects.filter(category=category)
+    
+    context = {
+   
+    'total':total,
+    
+    }
+    return render(request, 'science.html', context)
+
+
+
+
+@login_required
+@transaction.atomic
+def create(request):
+    form = TrendingForm(request.POST or None, request.FILES or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            article = form.save(commit=False) 
+            article.user = request.user # you can check here whether user is related any author
+            article.save()
+            
+        return redirect('home')
+    else:
+        context = {'form': form }
+        return render(request, 'create.html', context) 
+
+
+
+
+
+
+
+
+
     
 
 
