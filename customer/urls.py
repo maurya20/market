@@ -17,7 +17,7 @@ urlpatterns = [
     path('logout', views.logout, name='logout'),
     path('edit', views.edit, name='edit'),
     path('create',views.create, name='create'),
-    path('tbbc',views.tbbc, name='tbbc'),
+    path('category/<str:category>',views.category, name='category'),
     path('blog/<int:id>',views.blog, name='blog'),
     path('reset_password/', auth_views.PasswordResetView.as_view(template_name="password_reset.html"),name="reset_password"),
     path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(template_name="reset_sent.html"),name="password_reset_done"),

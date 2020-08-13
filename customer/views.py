@@ -126,16 +126,6 @@ def tb(request, user_id):
     return render(request, 'tb.html', context)
 
 
-def tbbc(request):
-    cat = Trending.objects.filter(category='Farming')
-    
-    context = {
-   
-    'cat':cat,
-    
-    }
-    return render(request, 'science.html', context)
-
 
 
 
@@ -157,6 +147,15 @@ def create(request):
 
 
 
+def category(request, category):
+    cat = Trending.objects.filter(category=category)
+    cat_name = category
+    context = {
+   
+    'cat':cat,
+    'cat_name':cat_name,
+    }
+    return render(request, 'category.html', context)
 
 
 

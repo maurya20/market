@@ -11,7 +11,7 @@
   </div>
   <div class="detail">
     <p>Published on: {{prof.date}}</p>
-    <h3 style="color:blue;">Category: {{prof.category}}</h3>
+    <a href="{%url 'category' prof.category%}"><h3 style="color:blue;">Category: {{prof.category}}</h3></a>
     <h3>{{prof.heading}}</h3>
    
     
