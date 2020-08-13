@@ -126,12 +126,12 @@ def tb(request, user_id):
     return render(request, 'tb.html', context)
 
 
-def tbbc(request, category):
-    total = Trending.objects.filter(category=category)
+def tbbc(request):
+    cat = Trending.objects.filter(category='Farming')
     
     context = {
    
-    'total':total,
+    'cat':cat,
     
     }
     return render(request, 'science.html', context)
