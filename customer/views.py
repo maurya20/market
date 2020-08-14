@@ -117,10 +117,11 @@ def blog(request, id):
 
 def tb(request, user_id):
     total = Trending.objects.filter(user_id=user_id)
-    
+    author = User.objects.get(id=user_id)
     context = {
    
     'total':total,
+    'author':author,
     
     }
     return render(request, 'tb.html', context)

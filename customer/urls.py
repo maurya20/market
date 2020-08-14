@@ -10,7 +10,7 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('', views.userlogin, name='userlogin'),
     path('home', views.home, name='home'),
-    path('tb/<int:user_id>',views.tb, name='tb'),
+    path('tb/<str:user_id>',views.tb, name='tb'),
     path('register', views.register, name='register'),
     path('userlogin', views.userlogin, name='userlogin'),
     path('profile', views.Profile, name='profile'),
