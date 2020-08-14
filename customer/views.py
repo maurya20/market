@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from django.db import models
-from .forms import ProfileForm, TrendingForm, PUForm
+from .forms import ProfileForm, TrendingForm
 from django.http import HttpResponse
 from customer.models import Profile, Trending
 from django.conf import settings
@@ -65,16 +65,17 @@ def logout(request):
 
 
 @login_required
+def myblog(request):
+    myblog = Trending.objects.filter(user_id=request.user.id)
+
+    return render(request, 'myblog.html', {'myblog':myblog})
+
+
+@login_required
 def Profile(request):
-    if request.method == 'POST':
-        p_form = PUForm(request.POST, request.FILES)
-        if p_form.is_valid():
-            p_form.save()
-        return redirect('profile')
-    else:
-        p_form = PUForm()
-        context = {'p_form': p_form }
-        return render(request, 'profile.html', context)
+    myblog = Trending.objects.filter(user_id=request.user.id)
+    return render(request, 'profile.html')
+
 
 
 @login_required
@@ -125,7 +126,6 @@ def tb(request, user_id):
     
     }
     return render(request, 'tb.html', context)
-
 
 
 
