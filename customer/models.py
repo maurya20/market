@@ -30,24 +30,16 @@ def save_user_profile(sender, instance, **kwargs):
 
 
 
-
-
-
-
-
-
 class Trending(models.Model):
     CATEGORY_CHOICES = (
-        ("TECHNOLOGY", "Technology"),
-        ("TRAVELLING", "Travelling"),
-        ("EDUCATION", "Education"),
-        ("AGRICULTURE", "Agricuture"),
-        ("GADGETS", "Gadgets"),
-        ("POLITICS", "Politics"),
-        ("HISTORY", "History"),
-        ("SCIENCE", "Science"),
-        ("FOOD", "Food"),
-        ("MISCELLENIOUS", "Miscellenious"))
+        ("Science & Education", "Science & Education"),
+        ("Travel", "Travel"),
+        ("Gadgets", "Gadgets"),
+        ("History", "History"),
+        ("Politics", "Politics"),
+        ("Farming", "Farming"),
+        ("Sports", "Sports"),
+        ("Other", "Other"))
     category = models.CharField(max_length=120, choices=CATEGORY_CHOICES,default='MISCELLENIOUS') 
     heading = models.CharField('Blog Heading', max_length=120, null=True)
     blog = models.TextField(blank=True, null=True)
