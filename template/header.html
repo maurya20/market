@@ -29,11 +29,18 @@
 </svg></a>
       </li>
       {% if user.is_authenticated %}
-      <li class="nav-item">
-        <a class="nav-link" href="/profile">Profile</a>
-      </li><li class="nav-item">
-        <a class="nav-link" href="/create">Create Blog </a>
+     <li class="nav-item">
+        <a class="nav-link" href="/create">Write Blog </a>
       </li>
+   <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Profile
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="/profile">My Profile</a>
+        <a class="dropdown-item" href="#">My Blogs</a>
+      </div>
+    </li>
       <li class="nav-item">
         <a style="color:#80ff00;"class="nav-link" href="">Hello {{request.user.username}}</a>
       </li>
@@ -41,7 +48,7 @@
         <a class="nav-link" href="/logout">Logout</a>
       </li>
       <li class="nav-item">
-        <p style="color:#0000ff" id="time">Time</p>
+        <a class="nav-link"  id="time" >Time</a>
       </li>
        
       {% else %}
