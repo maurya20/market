@@ -18,10 +18,22 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from customer import views
+from customer.models import Profile, Trending
+from django.contrib.auth.models import User
+
+
+
+
+
+
+
+
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('customer.urls'))
+    path('', include('customer.urls')),
 ]
 
 

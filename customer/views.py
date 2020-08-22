@@ -11,9 +11,12 @@ from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.contrib.auth.decorators import user_passes_test
 
+from rest_framework import viewsets
+from .serializers import TrendingSerializer
 
-
-
+class TrendingViewSet(viewsets.ModelViewSet):
+    queryset = Trending.objects.all()
+    serializer_class = TrendingSerializer
 
 def register(request):
     if request.method == 'POST':

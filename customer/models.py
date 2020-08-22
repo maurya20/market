@@ -40,7 +40,7 @@ class Trending(models.Model):
         ("Farming", "Farming"),
         ("Sports", "Sports"),
         ("Other", "Other"))
-    category = models.CharField(max_length=120, choices=CATEGORY_CHOICES,default='MISCELLENIOUS') 
+    category = models.CharField(max_length=120, choices=CATEGORY_CHOICES,default='Other') 
     heading = models.CharField('Blog Heading', max_length=120, null=True)
     blog = models.TextField(blank=True, null=True)
     date = models.DateField(default=datetime.now, null=True)
