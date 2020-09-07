@@ -14,6 +14,20 @@ from django.contrib.auth.decorators import user_passes_test
 from rest_framework import viewsets
 from .serializers import TrendingSerializer
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+
+
+
+class HelloView(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        content = {'message': 'Hello, World!'}
+        return Response(content)
+
+
 class TrendingViewSet(viewsets.ModelViewSet):
     queryset = Trending.objects.all()
     serializer_class = TrendingSerializer
@@ -59,7 +73,7 @@ def userlogin(request):
             messages.info(request, 'Invalid credentials')
             return render(request, 'userlogin.html')
     else:
-        return render(request, 'index.html')
+        return render(request, 'userlogin.html')
 
 
 def logout(request):
