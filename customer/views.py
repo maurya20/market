@@ -59,7 +59,7 @@ def userlogin(request):
             messages.info(request, 'Invalid credentials')
             return render(request, 'userlogin.html')
     else:
-        return render(request, 'userlogin.html')
+        return render(request, 'index.html')
 
 
 def logout(request):
