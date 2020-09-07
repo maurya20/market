@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+    
+}
+
+.gallery {
+    margin-top: 80px;
+}
+
+.footer {
+    position: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width:100%;
+    background-color:black;
+    color: white;
+    text-align: center;
+ }
