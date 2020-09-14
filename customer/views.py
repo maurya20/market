@@ -29,7 +29,7 @@ class HelloView(APIView):
 
 
 class TrendingViewSet(viewsets.ModelViewSet):
-    queryset = Trending.objects.all()
+    queryset = Trending.objects.all().filter().order_by('-id')
     serializer_class = TrendingSerializer
 
 def register(request):

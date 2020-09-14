@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from customer import views
 from customer.models import Profile, Trending
 from django.contrib.auth.models import User
-
+from rest_framework_simplejwt import views as jwt_views
 
 
 
@@ -34,6 +34,8 @@ from django.contrib.auth.models import User
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('customer.urls')),
+    path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
 ]
 
 
