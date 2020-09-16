@@ -12,12 +12,16 @@ from django.db import transaction
 from django.contrib.auth.decorators import user_passes_test
 
 from rest_framework import viewsets
-from .serializers import TrendingSerializer
+from .serializers import TrendingSerializer, UserSerializer, ProfileSerializer
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
+
+# from django.contrib.auth import get_user_model
+# User = get_user_model()
+from rest_framework import generics
 
 
 class HelloView(APIView):
@@ -31,6 +35,17 @@ class HelloView(APIView):
 class TrendingViewSet(viewsets.ModelViewSet):
     queryset = Trending.objects.all().filter().order_by('-id')
     serializer_class = TrendingSerializer
+
+
+class ProfileDetail(generics.RetrieveAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+
+
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
 
 def register(request):
     if request.method == 'POST':
@@ -90,7 +105,6 @@ def myblog(request):
 
 @login_required
 def Profile(request):
-    myblog = Trending.objects.filter(user_id=request.user.id)
     return render(request, 'profile.html')
 
 
@@ -155,6 +169,7 @@ def create(request):
         if form.is_valid():
             article = form.save(commit=False) 
             article.user = request.user # you can check here whether user is related any author
+            article.author = request.user
             article.save()
             
         return redirect('home')

@@ -45,6 +45,7 @@ class Trending(models.Model):
     blog = models.TextField(blank=True, null=True)
     date = models.DateField(default=datetime.now, null=True)
     pic = models.ImageField(default='blg.jpg', upload_to='blog/', null='True', blank= 'True')
+    author = models.CharField(max_length=120, null=True)
     user = models.ForeignKey(User, on_delete = models.CASCADE, null='True', blank= 'True')
     
 
